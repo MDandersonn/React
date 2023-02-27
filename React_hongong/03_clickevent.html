@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src=" https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="r1"></div>
+
+
+
+    <script type="text/babel">
+        class App extends React.Component {
+            constructor(props) {
+                super(props)
+                this.state = {
+                    count: 0
+                }
+                // 방법1
+                this.func = this.func.bind(this);
+
+            }
+            render() {
+                return <div>
+                    <h1> 클릭한 횟수:{this.state.count} </h1>
+                    <button onClick={this.func}>방법1클릭</button>
+                   <button onClick={(e)=> this.func(e)}>방법2클릭</button>
+                    <button onClick={this.func3}>방법3클릭</button>
+                </div>
+            }
+//방법2는 bind(this)를 안해도됨
+
+            //방법1,2
+            func(event) {
+                this.setState({
+                    count: this.state.count+1
+                })
+
+            }
+            // 방법3
+            func3 = (e)=>{
+                this.setState({
+                    count: this.state.count +1
+                })
+            }
+
+
+        }
+        const container = document.getElementById('r1');
+        ReactDOM.render(<App />, container);
+
+    </script>
+
+</body>
+
+</html>

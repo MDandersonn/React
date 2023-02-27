@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script> -->
+    <!-- <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script> -->
+    <!-- <script src=" https://unpkg.com/@babel/standalone/babel.min.js"></script> -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src=" https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+</head>
+
+<body>
+    <div id="root"></div>
+    <div id="root2"></div>
+    <div id="root3"></div>
+
+
+    <script type="text/babel">
+        const component = <h1>안녕하세요</h1>;
+        const container = document.getElementById('root');
+        ReactDOM.render(component, container);
+
+
+        // ================JSX==============
+        const name = '구름';
+        const component2 = <div>
+            <h1>{name} 님 안녕하세요 </h1>
+        </div>
+
+        const container2 = document.getElementById('root2');
+        ReactDOM.render(component2, container2);
+
+
+
+        // 클래스 컴포넌트 ,속성사용하기
+        class App extends React.Component {
+            constructor(props) {
+                super(props)
+                //생성자코드
+            }
+            render() {
+                //출력할것
+                return <div>
+                    <h1>{this.props.name} 님 하이!</h1>
+                </div>
+            }
+            componenetDidMount() {
+                //컴포넌트가 화면에 출력될때 호출
+            }
+            componenetWillUnmount() {
+                //컴포넌트가 화면에서 제거될때 호출
+            }
+        }
+        const container3 = document.getElementById('root3');
+        ReactDOM.render(<App name="구름" />, container3);
+    </script>
+
+</body>
+
+</html>
